@@ -18,12 +18,12 @@
           <p>Welcome back! Please login to your account.</p>
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="email">Email Address</label>
           <input id="email" type="email" placeholder="Enter your email" />
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="password">Password</label>
           <input
             id="password"
@@ -36,14 +36,10 @@
 
         <p class="switch-text">
           New user?
-          <a
+          
             href="#"
-            onclick="
-              toggleRegister(true);
-              return false;
-            "
-            >Create an account</a
-          >
+            onclick="toggleRegister(true); return false;"
+            >Create an account</a>
         </p>
       </div>
 
@@ -53,22 +49,22 @@
           <p>Join EduTrack today.</p>
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="name">Full Name</label>
           <input id="name" type="text" placeholder="Enter your full name" />
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="regEmail">Email Address</label>
           <input id="regEmail" type="email" placeholder="Enter your email" />
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="regPass">Password</label>
           <input id="regPass" type="password" placeholder="Create a password" />
         </div>
 
-        <div class="input-group">
+        <div class="form-group">
           <label for="role">I am a...</label>
           <select id="role">
             <option value="student">Student</option>
@@ -80,14 +76,10 @@
 
         <p class="switch-text">
           Already have an account?
-          <a
+          
             href="#"
-            onclick="
-              toggleRegister(false);
-              return false;
-            "
-            >Sign In</a
-          >
+            onclick="toggleRegister(false); return false;"
+            >Sign In</a>
         </p>
       </div>
     </div>
