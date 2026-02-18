@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduTrack Login</title>
     <link rel="stylesheet" href="assets/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="container">
@@ -34,12 +30,24 @@
 
         <button onclick="login()" class="btn-primary">Sign In</button>
 
-        <p class="switch-text">
+        <p
+          style="
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+          "
+        >
           New user?
-          
+          <a
             href="#"
-            onclick="toggleRegister(true); return false;"
-            >Create an account</a>
+            onclick="
+              toggleRegister(true);
+              return false;
+            "
+            style="color: var(--primary); text-decoration: none"
+          >
+            Create an account
+          </a>
         </p>
       </div>
 
@@ -74,12 +82,24 @@
 
         <button onclick="register()" class="btn-primary">Register</button>
 
-        <p class="switch-text">
+        <p
+          style="
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+          "
+        >
           Already have an account?
-          
+          <a
             href="#"
-            onclick="toggleRegister(false); return false;"
-            >Sign In</a>
+            onclick="
+              toggleRegister(false);
+              return false;
+            "
+            style="color: var(--primary); text-decoration: none"
+          >
+            Sign In
+          </a>
         </p>
       </div>
     </div>
@@ -89,7 +109,6 @@
       function toggleRegister(show) {
         const loginBox = document.getElementById("loginBox");
         const registerBox = document.getElementById("registerBox");
-
         if (show) {
           loginBox.style.display = "none";
           registerBox.style.display = "block";

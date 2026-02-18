@@ -1,11 +1,6 @@
-const getVal = (id) => document.getElementById(id).value;
+const API_BASE = "/api";
 
-function showRegister() {
-  const loginBox = document.getElementById("loginBox");
-  const registerBox = document.getElementById("registerBox");
-  if (loginBox) loginBox.style.display = "none";
-  if (registerBox) registerBox.style.display = "block";
-}
+const getVal = (id) => document.getElementById(id).value;
 
 function register() {
   const data = {
@@ -15,7 +10,12 @@ function register() {
     role: getVal("role"),
   };
 
-  fetch("/register", {
+  if (!data.full_name || !data.email || !data.password) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  fetch(`${API_BASE}/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -24,7 +24,7 @@ function register() {
       const msg = await res.text();
       if (res.ok) {
         alert(msg);
-        toggleRegister(false); 
+        toggleRegister(false);
       } else {
         alert("Error: " + msg);
       }
@@ -33,13 +33,18 @@ function register() {
 }
 
 function login() {
-  fetch("/signin", {
+  const email = getVal("email");
+  const password = getVal("password");
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  fetch(`${API_BASE}/signin`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: getVal("email"),
-      password: getVal("password"),
-    }),
+    body: JSON.stringify({ email, password }),
   })
     .then(async (res) => {
       if (res.ok) return res.json();
