@@ -7,7 +7,9 @@ function getPool() {
     const connectionString = process.env.DATABASE_URL;
 
     if (!connectionString) {
-      console.warn("DATABASE_URL not found. Local debugging might fail.");
+      throw new Error(
+        "DATABASE_URL environment variable is missing in Vercel settings.",
+      );
     }
 
     pool = new Pool({
